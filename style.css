@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anybody&display=swap');
+
+@font-face {
+    font-family: logofont;
+    src: url('fonts/MangabeyRegular-rgqVO.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255)
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    /* background-color: rgb(19, 129, 223); */
+    background-color: rgb(57, 131, 57);
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/* ------ */
+/* NAVBAR */
+/* ------ */
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-auto-flow: column;
+    column-gap: 50%;
+
+    width: 85%;
+    margin: auto;
+    margin-top: 2.5%;
+
+    align-items: center;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+
+    font-size: 1.2em;
+    font-family: 'Sono', sans-serif;
+    text-align: center;
+}
+
+nav ul a {
+    transition: 1000ms;
+}
+
+nav ul a:hover {
+    transition: 500ms;
+
+    color: rgb(255, 255, 0);
+    
+    transform: scale(1.1);
+}
+
+#register-button {
+    transition: 1000ms;
+    
+    border: 1px white solid;
+    border-radius: 15px;
+}
+
+#register-button:hover {
+    transition: 500ms;
+    transform: scale(1.05);
+
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+/* ----------- */
+/* DESCRIPTION */
+/* ----------- */
+
+.description {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 15%;
+}
+
+.description h1 {
+    transition: 1000ms;
+    font-family: 'Francois One', sans-serif;
+    font-size: 3em;
+    flex: 1;
+}
+
+.description h1:hover {
+    transition: 500ms;
+
+    transform: scale(1.2);
+
+    cursor: pointer;
+}
+
+.description h3 {
+    flex: 1;
+    font-family: 'Kalam', cursive;
+    font-size: 1.5em;
+}
+
+/* ------- */
+/* BUTTONS */
+/* ------- */
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5%;
+
+    width: 30%;
+    margin: auto;
+    margin-top: 2.5%;
+
+    font-family: 'Inconsolata', monospace;
+
+    font-size: 1.75em;
+
+    text-align: center;
+}
+
+#apply {
+    transition: 1000ms;
+
+    padding: 5px 0 5px 0;
+    
+    border: 1px solid white;
+    border-radius: 22.5px;
+}
+
+#learn {
+    transition: 1000ms;
+
+    padding: 5px 0 5px 0;
+    
+    border: 1px solid white;
+    border-radius: 22.5px;
+}
+
+#apply:hover {
+    transition: 500ms;
+    transform: scale(1.05);
+
+    font-size: 1.1em;
+    
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+#learn:hover {
+    transition: 500ms;
+    transform: scale(1.05);
+
+    font-size: 1.1em;
+    
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
