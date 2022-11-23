@@ -1,7 +1,8 @@
 <?php
 define('PAGE_NAME', 'Login');
 
-include('../main.php');
+include('../../main.php');
+include('../../connection/main.php');
 
 ?>
 
@@ -14,6 +15,32 @@ include('../main.php');
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
 <body>
+    <?php
+    if(isset($_POST['login-button'])) {
+        $username = $_POST['login-email-username'];
+        $userpass = $_POST['login-password'];
+        
+        $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.users WHERE user_name = ?;");
+        $stmt->execute([$username]);
+
+        $result = $stmt->fetch();
+        
+        if(password_verify($userpass, $result['user_password'])) {
+            echo "logged in!";
+        } else {
+            echo "wrong password!";
+        }
+        
+        $stmt = null;
+
+        // if(password_verify($userpass, $result[2])) {
+        //     echo "logged in!";
+        // } else {
+        //     echo "wrong password!";
+        // }
+    }
+    ?>
+    
     <form action="" method="POST">
         <h1><?=strtoupper(PAGE_NAME)?></h1>
         <div class="login-inputs">
@@ -21,7 +48,7 @@ include('../main.php');
             <input type="text" name="login-email-username" id="login-email-username" placeholder="Enter Username/E-Mail">
 
             <label for="login-password">Password</label>
-            <input type="text" name="login-password" id="login-password" placeholder="Enter Password">
+            <input type="password" name="login-password" id="login-password" placeholder="Enter Password">
 
             <input type="submit" value="LOGIN" name="login-button" id="login-button">
         </div>

@@ -4,11 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anybody&display=swap');
 
-@font-face {
-    font-family: logofont;
-    src: url('fonts/MangabeyRegular-rgqVO.otf');
-}
-
 * {
     margin: 0;
     padding: 0;

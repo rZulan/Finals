@@ -1,0 +1,96 @@
+Learn++
+
+Learn++.com
+
+Admin Roles >>>>
+- Management
+- Moderators
+- Treasurer
+- Tutors Manager
+
+index >>>
+Logo
+
+navbar -if not logged in- (About, Courses, Tutors, Login, Register)
+
+navbar -if logged in- (About, Courses, Tutors, Logout)
+
+Description
+
+Choices >>
+Tutor or Student
+
+-if tutor- -> Registration for Tutor
+-> Personal Information
+->> Name, Age, Address,...
+
+-> Contact Information
+->> Email, Phone Number, Messenger Link,...
+
+-> School Identity Information
+->> -If student- COR, -If prof- Interview
+
+-> Additional Information (Optional for easier verification)
+->> Upload Files
+
+-> Account Information
+->> Username, Email, Password
+
+
+-if student- -> Registration for student
+->> Username, Email, Password, COR
+
+
+-if maybe later- ->
+->> Username, Email, Password
+
+
+Home Page >>>
+
+> Navbar
+> Top Courses
+> Partnered/Verified Tutors (Star Reviews)
+> About (Info about tutoring)
+> Do you want to be a tutor?
+> Contacts
+> Developers
+> Footer
+...
+
+
+
+Profile/Account Page >>>
+
+-> Account Information
+>> Username, Email, Password (editable)
+
+-> Tutoring Information
+>> Schedule
+>> Payments
+
+-> Billing Information
+>> Account Balance
+>> G-Cash Number
+>> G-Cash Holder Name
+
+
+Admin Page >>>
+->> Management
+>> Create Users
+>> All Below
+
+->> Moderators
+>> User Information
+>> Kick/Ban/Delete Users
+>> Audit Logs
+
+->> Treasurer
+>> Manage Payments
+
+->> Tutors Manager
+>> Tutor Information
+>> Tutor Schedule
+>> Manage Tutoring Sessions
+
+(Suggestions)
+Dropdown for navbar

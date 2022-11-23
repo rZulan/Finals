@@ -2,6 +2,7 @@
 define('PAGE_NAME', 'Home');
 
 include('main.php');
+include('connection/main.php');
 
 ?>
 
@@ -31,7 +32,7 @@ include('main.php');
     </nav>
 
     <div class="description">
-        <h1>Interactive Tutoring Inside the Campus!</h1>
+        <h1>Interactive Tutoring Inside Campus!</h1>
         <h3>Get a tutor or become one! Join us by signing up!</h3>
     </div>
 

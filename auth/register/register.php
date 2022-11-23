@@ -12,8 +12,6 @@ include('../../main.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
-    
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
 <body>
@@ -29,9 +27,9 @@ include('../../main.php');
         <div class="register-type">
             <h1>What are you signing up for?</h1>
             <div class="register-choices">
-                <a href="" id="as-tutor">I'm a Tutor</a>
-                <a href="" id="as-student">I'm a Student</a>
-                <a href="" id="undecided">I'll choose later</a>
+                <a href="choices/tutor.php" id="as-tutor">I'm a Tutor</a>
+                <a href="choices/student.php" id="as-student">I'm a Student</a>
+                <a href="choices/" id="undecided">Maybe Later</a>
             </div>
         </div>
 

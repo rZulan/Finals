@@ -1,4 +1,10 @@
 <style>
+@font-face {
+    font-family: logofont;
+    src: url('../fonts/MangabeyRegular-rgqVO.otf');
+}
+
+    
 #brand-name {
     transition: 1000ms;
     
