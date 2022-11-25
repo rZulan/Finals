@@ -110,6 +110,25 @@ include('../utils/checker.php');
         </div>
     </div>
 
+    <div class="ad-section-container">
+        <div class="check-courses-ad">
+            <h1>Get Started</h1>
+            <p>Check out all the courses available to start your learning sessions with a tutor!</p>
+            <a href="" id="view-courses-button">View All Courses</a>
+        </div>
+    </div>
+
+    <div class="ad-section-container">
+        <div class="become-a-tutor-ad">
+            <div class="b-a-tutor-intro">
+                <h1>Become a Tutor now.</h1>
+                <p>Do you plan on becoming a tutor and help students with their studies? This is your chance to make a change!</p>
+                <a href="" id="become-a-tutor-button">Apply as Tutor</a>
+            </div>
+            <img src="../assets/stock/man-cross-arms.png" alt="">
+        </div>
+    </div>
+
     <footer>
         
     </footer>

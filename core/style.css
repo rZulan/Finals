@@ -67,6 +67,7 @@ header h3 {
 
     width: 50%;
     margin: auto;
+    margin-bottom: 5%;
 }
 
 .top-course {
@@ -101,10 +102,43 @@ header h3 {
     margin: auto;
 }
 
+.ad-section-container {
+    
+}
+
+.check-courses-ad {
+    height: 500px;
+    background-color: aquamarine;
+    
+    text-align: center;
+}
+
+.become-a-tutor-ad {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2.5%;
+
+    width: 50%;
+    margin: auto;
+
+    align-items: center;
+    
+    height: 500px;
+    
+    text-align: center;
+}
+
+
+.become-a-tutor-ad img {
+    height: 250px;
+    width: 250px;
+
+    text-align: center;
+}
+
 footer {
     margin-top: 5%;
     
     background-color: black;
     height: 250px;
-    
 }

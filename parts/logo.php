@@ -61,7 +61,7 @@
 
 </style>
 
-<a href="http://26.238.198.155:8000/core/home.php" id="brand-name">
+<a href="http://26.105.198.90:8000/core/home.php" id="brand-name">
     <h1>
         <span id="char-1">L</span>
         <span id="char-2">e</span>

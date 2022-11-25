@@ -33,10 +33,10 @@ nav ul a {
         <a href="#">Courses</a>
         <?php
         if(isLoggedIn()) {
-            echo "<a href=\"http://26.238.198.155:8000/core/account/dashboard.php\">Account</a>";
-            echo "<a href=\"http://26.238.198.155:8000/auth/logout.php\">Logout</a>";
+            echo "<a href=\"http://26.105.198.90:8000/core/account/dashboard.php\">Account</a>";
+            echo "<a href=\"http://26.105.198.90:8000/auth/logout.php\">Logout</a>";
         } else {
-            echo "<a href=\"http://26.238.198.155:8000/auth/login/login.php\">Login</a>";
+            echo "<a href=\"http://26.105.198.90:8000/auth/login/login.php\">Login</a>";
         }
         ?>
     </ul>

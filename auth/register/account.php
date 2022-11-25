@@ -38,13 +38,14 @@ if(isset($_POST['register-button1'])) {
         if($_POST['rf-acc-password'] == $_POST['rf-acc-password2']) {
             $username = $_POST['rf-acc-name'];
             $userpass = password_hash($_POST['rf-acc-password'], PASSWORD_BCRYPT);
+            $useremail = $_POST['rf-acc-email'];
             
             $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.users WHERE user_name = ?;");
             $stmt->execute([$username]);
 
             if($stmt->rowCount() <= 0) {
-                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password) VALUES(?, ?);");
-                $stmt->execute([$username, $userpass]);
+                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email) VALUES(?, ?, ?);");
+                $stmt->execute([$username, $userpass, $useremail]);
 
                 $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
                 
@@ -65,6 +66,9 @@ if(isset($_POST['register-button1'])) {
     ?>
 
     <form action="" method="post">
+        <label for="rf-acc-email">Email</label>
+        <input type="email" name="rf-acc-email" id="rf-acc-email">
+        
         <label for="rf-acc-name">Username</label>
         <input type="text" name="rf-acc-name" id="rf-acc-name">
 
