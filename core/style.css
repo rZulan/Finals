@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,34 +12,50 @@ a {
     color: black;
 }
 
-nav {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-
-    align-items: center;
-}
-
-nav ul {
-    width: 30%;
-    margin-left: 65%;
-
-    white-space: nowrap;
-}
-
-nav ul a {
-    flex: 1;
-    margin: 0 20px 0 20px;
+nav h1 {
+    color: white;
 }
 
 header {
     text-align: center;
-    margin: 2.5% 0 2.5% 0;
+    margin: 0 0 2.5% 0;
+
+    background-color: rgb(6, 128, 87);
+    background-image: url("https://mloflm01yjzj.i.optimole.com/BF5NrLw-I4x_N1Ke/w:2000/h:588/q:auto/https://cardinaleducation.com/wp-content/uploads/people-woman-coffee-meeting-1.jpg");
+    background-repeat: no-repeat;
+    padding: 5% 0 5% 0;
 }
 
+header h1 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 4em;
+    text-shadow: 3px 1.5px black;
+
+    color: #e5d9b6;
+}
+
+header h3 {
+    font-family: 'Roboto Mono', monospace;
+    text-shadow: 2px 1px black;
+
+    color: #ffffff;
+
+    margin-bottom: 1.5%;
+}
+
+#test {    
+    background-color: rgb(255, 68, 0);
+    border: 2px solid black;
+    border-radius: 25px;
+
+    text-decoration: underline;
+
+    padding: 15px;
+}
 
 .courses-introduction {
     text-align: center;
-    margin: 5% 0 1.5% 0;
+    margin: 3.5% 0 1.5% 0;
 }
 
 
@@ -62,10 +82,29 @@ header {
     padding: 20px 0 20px 0;
 }
 
+.top-course h2 {
+    font-family: 'Inconsolata', monospace;
+}
+
 .top-course a {
     align-self: center;
     width: 50%;
     margin: auto;
 
     border: 2px solid black;
+}
+
+.top-course img {
+    height: 50px;
+    width: 50px;
+
+    margin: auto;
+}
+
+footer {
+    margin-top: 5%;
+    
+    background-color: black;
+    height: 250px;
+    
 }

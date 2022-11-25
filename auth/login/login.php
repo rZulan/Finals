@@ -16,6 +16,10 @@ include('../../connection/main.php');
 </head>
 <body>
     <?php
+    include('../../parts/logo.php');
+    ?>
+    
+    <?php
     if(isset($_POST['login-button'])) {
         $username = $_POST['login-email-username'];
         $userpass = $_POST['login-password'];
@@ -26,18 +30,14 @@ include('../../connection/main.php');
         $result = $stmt->fetch();
         
         if(password_verify($userpass, $result['user_password'])) {
-            echo "logged in!";
+            $_SESSION['user_id'] = $result['user_id'];
+            echo "<script>alert(\"You are now Logged in!\")</script>";
+            header('location:../../../../core/home.php');
         } else {
-            echo "wrong password!";
+            echo "<script>alert(\"Wrong password entered!\")</script>";
         }
         
         $stmt = null;
-
-        // if(password_verify($userpass, $result[2])) {
-        //     echo "logged in!";
-        // } else {
-        //     echo "wrong password!";
-        // }
     }
     ?>
     
@@ -53,5 +53,6 @@ include('../../connection/main.php');
             <input type="submit" value="LOGIN" name="login-button" id="login-button">
         </div>
     </form>
+    <a href="../register/account.php">Don't have an account? Register now!</a>
 </body>
 </html>

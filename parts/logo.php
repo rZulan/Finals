@@ -4,7 +4,6 @@
     src: url('../fonts/MangabeyRegular-rgqVO.otf');
 }
 
-    
 #brand-name {
     transition: 1000ms;
     
@@ -25,52 +24,52 @@
 }
 
 
-#plus-1:hover {
+#char-1:hover {
     color: rgb(255, 255, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-2:hover {
+#char-2:hover {
     color: rgb(255, 221, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-3:hover {
+#char-3:hover {
     color: rgb(255, 204, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-4:hover {
+#char-4:hover {
     color: rgb(255, 187, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-5:hover {
+#char-5:hover {
     color: rgb(255, 162, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-6:hover {
+#char-6:hover {
     color: rgb(255, 128, 0);
     text-shadow: 1px 1px 3px;
 }
 
-#plus-7:hover {
+#char-7:hover {
     color: rgb(255, 98, 0);
     text-shadow: 1px 1px 3px;
 }
 
 </style>
 
-<a href="" id="brand-name">
+<a href="http://26.238.198.155:8000/core/home.php" id="brand-name">
     <h1>
-        <span id="plus-1">L</span>
-        <span id="plus-2">e</span>
-        <span id="plus-3">a</span>
-        <span id="plus-4">r</span>
-        <span id="plus-5">n</span>
+        <span id="char-1">L</span>
+        <span id="char-2">e</span>
+        <span id="char-3">a</span>
+        <span id="char-4">r</span>
+        <span id="char-5">n</span>
 
-        <span id="plus-6">+</span>
-        <span id="plus-7">+</span>
+        <span id="char-6">+</span>
+        <span id="char-7">+</span>
     </h1>
 </a>

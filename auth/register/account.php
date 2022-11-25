@@ -30,6 +30,10 @@ if(isset($_POST['register-button1'])) {
 <body>
 
     <?php
+    include('../../parts/logo.php');
+    ?>
+
+    <?php
     if(isset($_POST['register-button2'])) {
         if($_POST['rf-acc-password'] == $_POST['rf-acc-password2']) {
             $username = $_POST['rf-acc-name'];
@@ -72,5 +76,7 @@ if(isset($_POST['register-button1'])) {
 
         <input type="submit" value="Register" name="register-button2" id="register-button2" required="true">
     </form>
+
+    <a href="../login/login.php">Already registered? Login now.</a>
 </body>
 </html>
