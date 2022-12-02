@@ -53,6 +53,6 @@ include('../../connection/main.php');
             <input type="submit" value="LOGIN" name="login-button" id="login-button">
         </div>
     </form>
-    <a href="../register/account.php">Don't have an account? Register now!</a>
+    <a href="../register/register.php">Don't have an account? Register now!</a>
 </body>
 </html>

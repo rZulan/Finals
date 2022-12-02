@@ -27,7 +27,7 @@ nav ul a {
     ?>
 
     <ul>
-        <a href="#">Home</a>
+        <a href="/core/home.php">Home</a>
         <a href="#">Find a Tutor</a>
         <a href="#">Become a Tutor</a>
         <a href="#">Courses</a>
