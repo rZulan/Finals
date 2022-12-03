@@ -19,7 +19,6 @@ include('../../connection/main.php');
 
     <?php
     include('../../parts/logo.php');
-    include('user.php');
 
     if(isset($_POST['register-button2'])) {
         if($_POST['rf-acc-password'] == $_POST['rf-acc-password2']) {
@@ -35,6 +34,7 @@ include('../../connection/main.php');
                     // INSERT USER INTO USERS TABLE
                     $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_fname, user_mname, user_lname, user_cEmail, user_phone, user_messenger) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
                     $stmt->execute([$username, $userpass, $useremail, $_SESSION['user-fname'], $_SESSION['user-mname'], $_SESSION['user-lname'], $_SESSION['user-cemail'], $_SESSION['user-phone'], $_SESSION['user-messenger']]);
+                    $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
 
                     // INSERT USER INTO TUTORS TABLE
                     $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutors(user_id) VALUES(?);");
@@ -51,9 +51,9 @@ include('../../connection/main.php');
                     // INSERT USER INTO USERS TABLE
                     $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email) VALUES(?, ?, ?);");
                     $stmt->execute([$username, $userpass, $useremail]);
+                    $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
                 }
                 
-                $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
                 $stmt = null;
 
                 header('location: ../../../../core/home.php');

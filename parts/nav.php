@@ -33,7 +33,7 @@ nav ul a {
         <a href="#">Courses</a>
         <?php
         if(isLoggedIn()) {
-            echo "<a href=\"/core/account/dashboard.php\">Account</a>";
+            echo "<a href=\"/core/dashboard/index.php\">Dashboard</a>";
             echo "<a href=\"/auth/logout.php\">Logout</a>";
         } else {
             echo "<a href=\"/auth/login/login.php\">Login</a>";

@@ -4,6 +4,7 @@ define('PAGE_NAME', 'Login');
 include('../../main.php');
 include('../../connection/main.php');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -27,15 +28,20 @@ include('../../connection/main.php');
         $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.users WHERE user_name = ?;");
         $stmt->execute([$username]);
 
-        $result = $stmt->fetch();
-        
-        if(password_verify($userpass, $result['user_password'])) {
-            $_SESSION['user_id'] = $result['user_id'];
-            echo "<script>alert(\"You are now Logged in!\")</script>";
-            header('location:../../../../core/home.php');
+        if($stmt->rowCount()) {
+            $result = $stmt->fetch();
+            
+            if(password_verify($userpass, $result['user_password'])) {
+                $_SESSION['user_id'] = $result['user_id'];
+                echo "<script>alert(\"You are now Logged in!\")</script>";
+                header('location:../../../../core/home.php');
+            } else {
+                echo "<script>alert(\"Wrong password entered!\")</script>";
+            }
         } else {
-            echo "<script>alert(\"Wrong password entered!\")</script>";
+            echo "<script>alert(\"Username not registered!\")</script>";
         }
+
         
         $stmt = null;
     }
