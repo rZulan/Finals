@@ -3,6 +3,7 @@ define('PAGE_NAME', 'Register');
 
 include('../../main.php');
 include('../../connection/main.php');
+include('../../utils/checker.php');
 
 ?>
 
@@ -26,10 +27,7 @@ include('../../connection/main.php');
             $userpass = password_hash($_POST['rf-acc-password'], PASSWORD_BCRYPT);
             $useremail = $_POST['rf-acc-email'];
             
-            $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.users WHERE user_name = ?;");
-            $stmt->execute([$username]);
-
-            if($stmt->rowCount() <= 0) {
+            if(hasAccount($SQL_Handle, $username)) {
                 if($_SESSION['fortutor']) {
                     // INSERT USER INTO USERS TABLE
                     $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_fname, user_mname, user_lname, user_cEmail, user_phone, user_messenger) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");

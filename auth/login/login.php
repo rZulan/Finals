@@ -42,7 +42,6 @@ include('../../connection/main.php');
             echo "<script>alert(\"Username not registered!\")</script>";
         }
 
-        
         $stmt = null;
     }
     ?>
