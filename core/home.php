@@ -3,6 +3,7 @@
 define('PAGE_NAME', 'Home');
 
 include('../main.php');
+include('../connection/main.php');
 include('../utils/checker.php');
 ?>
 

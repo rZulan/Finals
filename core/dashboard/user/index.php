@@ -22,10 +22,11 @@ include('../../../connection/main.php');
 
     <div class="db-options">
         <ul>
-            <li><a href="schedule.php">My Students</a></li>
-            <li><a href="stats.php">My Schedule</a></li>
-            <li><a href="stats.php">My Statistics</a></li>
-            <li><a href="profile.php">My Tutor Profile</a></li>
+            <li><a href="mycourses.php">My Courses</a></li>
+            <li><a href="/core/courses.php">All Courses</a></li>
+            <li><a href="sessions.php">My Sessions</a></li>
+            <li><a href="tutors.php">Tutors</a></li>
+            <li><a href="settings.php">Settings</a></li>
         </ul>
     </div>
     

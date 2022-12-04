@@ -8,7 +8,22 @@ function getUserID($handle, $username) {
         return -1;
     }
 
-    $result = $stmt->fetch();
+    return $stmt->fetch()['user_id'];
+}
 
-    return $result['user_id'];
+function getUserName($handle) {
+    $stmt = $handle->prepare("SELECT user_name FROM learnpp.users WHERE user_id = ?;");
+    $stmt->execute([$_SESSION['user_id']]);
+
+    return $stmt->fetch()['user_name'];
+}
+
+function getUserFullName($handle) {
+    $stmt = $handle->prepare("SELECT user_fname, user_mname, user_lname FROM learnpp.users WHERE user_id = ?;");
+    $stmt->execute([$_SESSION['user_id']]);
+
+    $result = $stmt->fetch();
+    $fullName = $result['user_fname'] . ' ' . $result['user_mname'] . ' ' . $result['user_lname'];
+
+    return $fullName;
 }

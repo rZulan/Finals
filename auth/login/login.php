@@ -30,7 +30,7 @@ include('../../connection/main.php');
 
         if($stmt->rowCount()) {
             $result = $stmt->fetch();
-            
+
             if(password_verify($userpass, $result['user_password'])) {
                 $_SESSION['user_id'] = $result['user_id'];
                 echo "<script>alert(\"You are now Logged in!\")</script>";

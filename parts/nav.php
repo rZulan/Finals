@@ -29,8 +29,11 @@ nav ul a {
     <ul>
         <a href="/core/home.php">Home</a>
         <a href="#">Find a Tutor</a>
-        <a href="#">Become a Tutor</a>
-        <a href="#">Courses</a>
+        <?php
+        if(!isTutor($SQL_Handle, $_SESSION['user_id'])) {
+            echo "<a href=\"../auth/register/choices/tutor.php\">Become a Tutor</a>";
+        }
+        ?>
         <?php
         if(isLoggedIn()) {
             echo "<a href=\"/core/dashboard/index.php\">Dashboard</a>";

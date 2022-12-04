@@ -2,8 +2,9 @@
 define('PAGE_NAME', 'Tutor - Profile');
 
 include('../../../main.php');
-include('../../../utils/checker.php');
 include('../../../connection/main.php');
+include('../../../utils/checker.php');
+include('../../../utils/getter.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,21 @@ include('../../../connection/main.php');
             <a href="">LOGOUT</a>
         </ul>
     </div>
+    
+    <div class="profile-container">
+        <div class="name-and-pic">
+            <h3>
+                <?=getUserName($SQL_Handle)?>
+            </h3>
+            <h4>
+                <?=getUserFullName($SQL_Handle)?>
+            </h4>
+            <img src="/assets/stock/pfp-template.png" alt="" height="100px" width="100px">
+        </div>
 
+        <div class="subjects-teach">
+            
+        </div>
+    </div>
 </body>
 </html>
