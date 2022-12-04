@@ -23,7 +23,7 @@ include('../../../main.php');
         if(isset($_POST['register-button1'])) {
             $_SESSION['fortutor'] = true;
             
-            $_SESSION['user-fname'] = $_POST['pi-input-fname'];+
+            $_SESSION['user-fname'] = $_POST['pi-input-fname'];
             
             $_SESSION['user-mname'] = $_POST['pi-input-mname'];
             $_SESSION['user-lname'] = $_POST['pi-input-lname'];

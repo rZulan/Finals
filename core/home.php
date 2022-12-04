@@ -25,10 +25,10 @@ include('../utils/checker.php');
     ?>
 
     <header>
-        <h1>Interactive Tutoring Inside Campus!</h1>
-        <h3>Need help with your subjects in CSS? Do you want to expand your knowledge in coding? Meet with our tutors now.</h3>
+        <h1>Interactive Tutoring Inside DHVSU Campus!</h1>
+        <h3>Need help with your subjects in CCS? Do you want to expand your knowledge in coding? Meet with our tutors now.</h3>
 
-        <a href="" id="test">Meet the Tutors</a>
+        <a href="/core/tutors.php" id="test">Meet the Tutors</a>
     </header>
 
     <div class="courses-introduction">

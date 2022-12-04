@@ -24,16 +24,16 @@ include('connection/main.php');
         include('parts/logo.php');
         ?>
         <ul>
-            <a href="">About</a>
-            <a href="">Courses</a>
-            <a href="">Tutors</a>
-            <a href="auth/login/login.php">Login</a>
-            <a href="auth/register/register.php" id="register-button">Register</a>
+            <li><a href="">About</a></li>
+            <li><a href="/core/courses.php">Courses</a></li>
+            <li><a href="/core/tutors.php">Tutors</a></li>
+            <li><a href="auth/login/login.php">Login</a></li>
+            <li><a href="auth/register/register.php" id="register-button">Register</a></li>
         </ul>
     </nav>
 
     <div class="description">
-        <h1>Interactive Tutoring Inside Campus!</h1>
+        <h1>Interactive Tutoring Inside DHVSU Campus!</h1>
         <h3>Get a tutor or become one! Join us by signing up!</h3>
     </div>
 

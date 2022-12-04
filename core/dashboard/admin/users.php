@@ -1,5 +1,5 @@
 <?php
-define('PAGE_NAME', 'Admin - Settings');
+define('PAGE_NAME', 'Admin - Users');
 
 include('../../../main.php');
 include('../../../connection/main.php');

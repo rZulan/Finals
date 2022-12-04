@@ -16,15 +16,15 @@ include('../../../utils/checker.php');
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
-<body> 
+<body>
     <?php
     include('../../../parts/nav.php');
-    include('../../../parts/sidebar.php')
+    include('../../../parts/sidebar.php');
     ?>
 
     <div class="db-options">
         <ul>
-            <li><a href="schedule.php">Users</a></li>
+            <li><a href="users.php">Users</a></li>
             <li><a href="tutors.php">Tutors</a></li>
             <li><a href="sessions.php">Sessions</a></li>
             <li><a href="stats.php">Stats</a></li>

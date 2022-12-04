@@ -28,7 +28,7 @@ include('../../utils/checker.php');
             $userpass = password_hash($_POST['rf-acc-password'], PASSWORD_BCRYPT);
             $useremail = $_POST['rf-acc-email'];
             
-            if(hasAccount($SQL_Handle, $username)) {
+            if(!hasAccount($SQL_Handle, $username)) {
                 if($_SESSION['fortutor']) {
                     // INSERT USER INTO USERS TABLE
                     $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_fname, user_mname, user_lname, user_cEmail, user_phone, user_messenger) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");

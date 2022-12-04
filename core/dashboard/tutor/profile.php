@@ -20,21 +20,8 @@ include('../../../utils/getter.php');
 <body> 
     <?php
     include('../../../parts/nav.php');
+    include('../../../parts/sidebar.php');
     ?>
-
-    <div class="side-bar">
-        <ul>
-            <a href="../../home.php">HOME</a>
-            <?php
-            if(isTutor($SQL_Handle, $_SESSION['user_id'])) {
-                echo "<a href=\"../tutor/index.php\">TUTOR</a>";
-            }
-            ?>
-            <a href="">PROFILE</a>
-            <a href="">ACCOUNT</a>
-            <a href="">LOGOUT</a>
-        </ul>
-    </div>
     
     <div class="profile-container">
         <div class="name-and-pic">
@@ -42,7 +29,7 @@ include('../../../utils/getter.php');
                 <?=getUserName($SQL_Handle)?>
             </h3>
             <h4>
-                <?=getUserFullName($SQL_Handle)?>
+                <?=getUserFullName($SQL_Handle, $userid)?>
             </h4>
             <img src="/assets/stock/pfp-template.png" alt="" height="100px" width="100px">
         </div>
