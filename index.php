@@ -15,6 +15,7 @@ include('connection/main.php');
 
     <link rel="stylesheet" href="style.css">
 
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
 <body>
