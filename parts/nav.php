@@ -41,8 +41,7 @@ nav ul li {
         } else {
             echo "<li><a href=\"../auth/register/choices/tutor.php\">Become a Tutor</a></li>";
         }
-        ?>
-        <?php
+
         if(isLoggedIn()) {
             echo "<li><a href=\"/core/dashboard/index.php\">Dashboard</a></li>";
             echo "<li><a href=\"/auth/logout.php\">Logout</a></li>";

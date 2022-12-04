@@ -1,7 +1,7 @@
 <?php
 include('../main.php');
 
-if(isset($_SESSION['user_id'])) {
+if(isLoggedIn()) {
     unset($_SESSION['user_id']);
     session_destroy();
 

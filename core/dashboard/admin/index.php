@@ -1,9 +1,17 @@
 <?php
-define('PAGE_NAME', 'Tutor');
+define('PAGE_NAME', 'Admin');
 
 include('../../../main.php');
 include('../../../connection/main.php');
 include('../../../utils/checker.php');
+
+if(!isLoggedIn()) {
+    header('location: ../../../../../auth/login/login.php');
+}
+
+if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
+    header('location: ../../../../../core/home.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +28,8 @@ include('../../../utils/checker.php');
     <?php
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
+    include('dboptions.php');
     ?>
-
-    <div class="db-options">
-        <ul>
-            <li><a href="users.php">Users</a></li>
-            <li><a href="tutors.php">Tutors</a></li>
-            <li><a href="sessions.php">Sessions</a></li>
-            <li><a href="stats.php">Stats</a></li>
-            <li><a href="settings.php">Website Settings</a></li>
-        </ul>
-    </div>
     
 </body>
 </html>

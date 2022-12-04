@@ -1,10 +1,11 @@
 <?php
-define('PAGE_NAME', 'Admin - Settings');
+define('PAGE_NAME', 'Admin');
 
 include('../../../main.php');
 include('../../../connection/main.php');
 include('../../../utils/checker.php');
 include('../../../utils/getter.php');
+
 
 if(!isLoggedIn()) {
     header('location: ../../../../../auth/login/login.php');
@@ -29,7 +30,10 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
     <?php
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
-    include('dboptions.php');
+
+    echo "deleting user " . getUserFullName($SQL_Handle, $_GET['edit-user']);
+    
     ?>
+    
 </body>
 </html>

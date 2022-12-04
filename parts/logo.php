@@ -1,7 +1,7 @@
 <style>
 @font-face {
     font-family: logofont;
-    src: url('../fonts/MangabeyRegular-rgqVO.otf');
+    src: url('/fonts/MangabeyRegular-rgqVO.otf');
 }
 
 #brand-name {
@@ -11,6 +11,9 @@
     font-size: 2.5em;
 
     text-align: center;
+    text-decoration: none;
+
+    color: white;
 }
 
 #brand-name:hover {

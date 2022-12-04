@@ -2,8 +2,10 @@
 define('PAGE_NAME', 'Tutor');
 
 include('../../../main.php');
-include('../../../utils/checker.php');
 include('../../../connection/main.php');
+include('../../../utils/checker.php');
+include('../../../utils/getter.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,9 @@ include('../../../connection/main.php');
 <body> 
     <?php
     include('../../../parts/nav.php');
-    include('../../../parts/sidebar.php')
+    include('../../../parts/sidebar.php');
+
+    echo getUserName($SQL_Handle);
     ?>
 
     <div class="db-options">
