@@ -3,6 +3,7 @@ define('PAGE_NAME', 'Login');
 
 include('../../main.php');
 include('../../connection/main.php');
+include('../../utils/checker.php');
 
 if(isLoggedIn()) {
     header('location: ../../core/home.php');

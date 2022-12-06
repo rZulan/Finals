@@ -1,5 +1,7 @@
 <?php
 include('../main.php');
+include('../connection/main.php');
+include('../utils/checker.php');
 
 if(isLoggedIn()) {
     unset($_SESSION['user_id']);

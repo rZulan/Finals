@@ -12,7 +12,7 @@
             echo "<li><a href=\"/core/dashboard/admin/index.php\">ADMIN</a></li>";
         }
         ?>
-        <li><a href="/core//dashboard/user/index.php">USER</a></li>
+        <li><a href="/core/dashboard/user/index.php">USER</a></li>
         <li><a href="/auth/logout.php">LOGOUT</a></li>
     </ul>
 </div>

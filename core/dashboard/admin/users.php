@@ -81,5 +81,14 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
 
         <input type="submit" value="Create User" name="create-user-button" id="create-user-button">
     </form>
+    
+    <?php
+    if(isset($_POST['is-tutor']) and $_POST['is-tutor'] == 'yes') {
+        echo "<form action='' method='post'>";
+            echo "<input type='text' name='first-name'>";
+        echo "</form>";
+    }
+    ?>
+
 </body>
 </html>

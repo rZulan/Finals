@@ -37,31 +37,6 @@ include('../utils/getter.php');
             echo "</div>";
         }
         ?>
-        
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
-        <div class="tutor">
-            <img src="/assets/stock/400x600.png" alt="">
-            <h1>Full Name Template</h1>
-        </div>
     </div>
 </body>
 </html>

@@ -13,7 +13,7 @@
     text-align: center;
     text-decoration: none;
 
-    color: white;
+    color: black;
 }
 
 #brand-name:hover {
