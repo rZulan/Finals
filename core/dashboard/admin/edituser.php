@@ -30,10 +30,26 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
     <?php
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
-
-    echo "editing user " . getUserFullName($SQL_Handle, $_GET['edit-user']);
+    
+    if(isset($_POST['save-button'])) {
+        $stmt = $SQL_Handle->prepare("UPDATE learnpp.users SET user_name");
+    }
     
     ?>
+    <form action="" method="post">
+        <?php
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserName($SQL_Handle, $_GET['edit-user']) . '">';
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserEmail($SQL_Handle, $_GET['edit-user']) . '">';
+        echo '<input type="password" name="edit-user-password" id="edit-user-password" autocomplete="off" placeholder=>';
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserContactEmail($SQL_Handle, $_GET['edit-user']) . '">';
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserPhone($SQL_Handle, $_GET['edit-user']) . '">';
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserMessenger($SQL_Handle, $_GET['edit-user']) . '">';
+        echo '<input type="text" name="edit-user-name" id="edit-user-name" autocomplete="off" placeholder="' . getUserBalance($SQL_Handle, $_GET['edit-user']) . '">';
+
+        ?>
+
+        <input type="submit" value="Save" name="save-button">
+    </form>
     
 </body>
 </html>

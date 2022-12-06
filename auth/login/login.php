@@ -38,13 +38,13 @@ if(isLoggedIn()) {
 
             if(password_verify($userpass, $result['user_password'])) {
                 $_SESSION['user_id'] = $result['user_id'];
-                echo "<script>alert(\"You are now Logged in!\")</script>";
+                echo '<script>alert("You are now Logged in!")</script>';
                 header('location:../../../../core/home.php');
             } else {
-                echo "<script>alert(\"Wrong password entered!\")</script>";
+                echo '<script>alert(""Wrong password entered!")</script>';
             }
         } else {
-            echo "<script>alert(\"Username not registered!\")</script>";
+            echo '<script>alert("Username not registered!")</script>';
         }
 
         $stmt = null;

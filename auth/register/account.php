@@ -57,10 +57,10 @@ include('../../utils/checker.php');
 
                 header('location: ../../../../core/home.php');
             } else {
-                echo "<script>alert(\"Username is already registered!\")</script>";
+                echo '<script>alert("Username is already registered!")</script>';
             }
         } else {
-            echo "<script>alert(\"Passwords do not match!\")</script>";
+            echo '<script>alert("Passwords do not match!")</script>';
         }
 
         $_POST = array();

@@ -23,7 +23,7 @@ include('../../../utils/getter.php');
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
 
-    echo getUserName($SQL_Handle);
+    echo getUserName($SQL_Handle, $_SESSION['user_id']);
     ?>
 
     <div class="db-options">
