@@ -7,6 +7,11 @@ include('../../../utils/checker.php');
 include('../../../utils/getter.php');
 
 
+if(isLoggedIn() and !hasAccount2($SQL_Handle, $_SESSION['user_id'])) {
+    unset($_SESSION['user_id']);
+    header('location: ../../../../../auth/login/login.php');
+}
+
 if(!isLoggedIn()) {
     header('location: ../../../../../auth/login/login.php');
 }
@@ -31,7 +36,7 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
 
-    echo "deleting user " . getUserFullName($SQL_Handle, $_GET['edit-user']);
+    
     
     ?>
     

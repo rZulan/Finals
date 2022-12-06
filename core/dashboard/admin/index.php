@@ -5,6 +5,11 @@ include('../../../main.php');
 include('../../../connection/main.php');
 include('../../../utils/checker.php');
 
+if(isLoggedIn() and !hasAccount2($SQL_Handle, $_SESSION['user_id'])) {
+    unset($_SESSION['user_id']);
+    header('location: ../../../../../auth/login/login.php');
+}
+
 if(!isLoggedIn()) {
     header('location: ../../../../../auth/login/login.php');
 }

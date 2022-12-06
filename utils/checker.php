@@ -11,6 +11,17 @@ function hasAccount($handle, $username) {
     return false;
 }
 
+function hasAccount2($handle, $userid) {
+    $stmt = $handle->prepare("SELECT * FROM learnpp.users WHERE user_id = ?;");
+    $stmt->execute([$userid]);
+
+    if($stmt->rowCount()) {
+        return true;
+    }
+
+    return false;
+}
+
 function isLoggedIn() {
     if(isset($_SESSION['user_id'])) {
         return true;
