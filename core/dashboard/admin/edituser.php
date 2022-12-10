@@ -72,13 +72,24 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
     ?>
     <form action="" method="post">
         <?php
-        echo '<input type="text" autocomplete="off" name="edit-user-name" id="edit-user-name" placeholder="' . getUserName($SQL_Handle, $_GET['edit-user']) . '">';
-        echo '<input type="password" autocomplete="new-password" name="edit-user-password" id="edit-user-password" placeholder="password">';
-        echo '<input type="text" autocomplete="off" name="edit-user-email" id="edit-user-email" placeholder="' . getUserEmail($SQL_Handle, $_GET['edit-user']) . '">';
-        echo '<input type="text" autocomplete="off" name="edit-user-cemail" id="edit-user-cemail" placeholder="' . getUserContactEmail($SQL_Handle, $_GET['edit-user']) . '">';
-        echo '<input type="text" autocomplete="off" name="edit-user-phone" id="edit-user-phone" placeholder="' . getUserPhone($SQL_Handle, $_GET['edit-user']) . '">';
-        echo '<input type="text" autocomplete="off" name="edit-user-messenger" id="edit-user-messenger" placeholder="' . getUserMessenger($SQL_Handle, $_GET['edit-user']) . '">';
-        echo '<input type="text" autocomplete="off" name="edit-user-balance" id="edit-user-balance" placeholder="' . getUserBalance($SQL_Handle, $_GET['edit-user']) . '">';
+        
+        
+        echo '
+            <label for="edit-user-name">Username</label>
+            <input type="text" autocomplete="off" name="edit-user-name" id="edit-user-name" placeholder="' . getUserName($SQL_Handle, $_GET['edit-user']) . '">
+            <label for="edit-user-password">Password</label>
+            <input type="password" autocomplete="new-password" name="edit-user-password" id="edit-user-password" placeholder="password">
+            <label for="edit-user-email">Email</label>
+            <input type="text" autocomplete="off" name="edit-user-email" id="edit-user-email" placeholder="' . getUserEmail($SQL_Handle, $_GET['edit-user']) . '">
+            <label for="edit-user-cemail">Contact Email</label>
+            <input type="text" autocomplete="off" name="edit-user-cemail" id="edit-user-cemail" placeholder="' . getUserContactEmail($SQL_Handle, $_GET['edit-user']) . '">
+            <label for="edit-user-phone">Phone Number</label>
+            <input type="text" autocomplete="off" name="edit-user-phone" id="edit-user-phone" placeholder="' . getUserPhone($SQL_Handle, $_GET['edit-user']) . '">
+            <label for="edit-user-messenger">Messenger Link</label>
+            <input type="text" autocomplete="off" name="edit-user-messenger" id="edit-user-messenger" placeholder="' . getUserMessenger($SQL_Handle, $_GET['edit-user']) . '">
+            <label for="edit-user-balance">Balance</label>
+            <input type="text" autocomplete="off" name="edit-user-balance" id="edit-user-balance" placeholder="' . getUserBalance($SQL_Handle, $_GET['edit-user']) . '">
+        ';
 
         ?>
 

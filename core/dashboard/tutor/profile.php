@@ -22,14 +22,18 @@ include('../../../utils/getter.php');
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
     ?>
+
+    <?php
+    include('dboptions.php');
+    ?>
     
     <div class="profile-container">
         <div class="name-and-pic">
             <h3>
-                <?=getUserName($SQL_Handle)?>
+                <?=getUserName($SQL_Handle, $_SESSION['user_id'])?>
             </h3>
             <h4>
-                <?=getUserFullName($SQL_Handle, $userid)?>
+                <?=getUserFullName($SQL_Handle, $_SESSION['user_id'])?>
             </h4>
             <img src="/assets/stock/pfp-template.png" alt="" height="100px" width="100px">
         </div>

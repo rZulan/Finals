@@ -36,7 +36,15 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
     include('../../../parts/nav.php');
     include('../../../parts/sidebar.php');
 
+    if(isTutor($SQL_Handle, $_GET['delete-user'])) {
+        $stmt = $SQL_Handle->prepare("DELETE FROM learnpp.tutors WHERE user_id = ?;");
+        $stmt->execute([$_GET['delete-user']]);
+    }
     
+    $stmt = $SQL_Handle->prepare("DELETE FROM learnpp.users WHERE user_id = ?;");
+    $stmt->execute([$_GET['delete-user']]);
+
+    header('location: users.php');
     
     ?>
     

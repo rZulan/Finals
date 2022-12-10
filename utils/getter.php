@@ -57,10 +57,10 @@ function getUserMessenger($handle, $userid) {
 }
 
 function getUserBalance($handle, $userid) {
-    $stmt = $handle->prepare("SELECT user_messenger FROM learnpp.users WHERE user_id = ?;");
+    $stmt = $handle->prepare("SELECT user_balance FROM learnpp.users WHERE user_id = ?;");
     $stmt->execute([$userid]);
 
-    return $stmt->fetch()['user_messenger'];
+    return $stmt->fetch()['user_balance'];
 }
 
 function getAdminLevel($handle, $userid) {

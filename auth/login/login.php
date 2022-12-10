@@ -4,6 +4,8 @@ define('PAGE_NAME', 'Login');
 include('../../main.php');
 include('../../connection/main.php');
 include('../../utils/checker.php');
+include('../../utils/getter.php');
+include('../../utils/logger.php');
 
 if(isLoggedIn()) {
     header('location: ../../core/home.php');
@@ -39,8 +41,11 @@ if(isLoggedIn()) {
             if(password_verify($userpass, $result['user_password'])) {
                 $_SESSION['user_id'] = $result['user_id'];
                 echo '<script>alert("You are now Logged in!")</script>';
+                logTrail($SQL_Handle, LOGTRAIL_AUTH, ("User [" . $_SESSION['user_id'] . "] " . getUserName($SQL_Handle, $_SESSION['user_id']) ." just logged in."));
+
                 header('location:../../../../core/home.php');
             } else {
+                logTrail($SQL_Handle, LOGTRAIL_AUTH, ("User tried to login with IP: " . $_SERVER['REMOTE_ADDR'] . "."));
                 echo '<script>alert(""Wrong password entered!")</script>';
             }
         } else {
@@ -64,5 +69,6 @@ if(isLoggedIn()) {
         </div>
     </form>
     <a href="../register/register.php">Don't have an account? Register now!</a>
+    <a href="forgot-password.php">Forgot Password?</a>
 </body>
 </html>

@@ -22,5 +22,9 @@ include('../../../connection/main.php');
     include('../../../parts/sidebar.php');
     ?>
 
+    <?php
+    include('dboptions.php');
+    ?>
+
 </body>
 </html>

@@ -65,7 +65,10 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
 
     <?php
     if(isset($_POST['create-user-button'])) {
-        echo "Is Tutor?" . $_POST['is-tutor'];
+        $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_email, user_password) VALUES(?, ?, ?);");
+        $stmt->execute([$_POST['create-username'], $_POST['create-email'], password_hash($_POST['create-password'], PASSWORD_BCRYPT)]);
+
+        header('location: users.php');
     }
     ?>
     
@@ -75,14 +78,11 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
         <label for="create-username">Username</label>
         <input type="text" name="create-username" id="create-username" placeholder="username">
 
+        <label for="create-email">E-Mail</label>
+        <input type="text" name="create-email" id="create-email" placeholder="E-Mail">
+
         <label for="create-password">Password</label>
         <input type="text" name="create-password" id="create-password" placeholder="password">
-
-        <label for="is-tutor">Tutor?</label>
-        <input type="radio" name="is-tutor" id="is-tutor-yes" value="yes">
-        <label for="is-tutor-yes">Yes</label>
-        <input type="radio" name="is-tutor" id="is-tutor-yes" value="no">
-        <label for="is-tutor-yes">No</label>
 
         <input type="submit" value="Create User" name="create-user-button" id="create-user-button">
     </form>

@@ -23,44 +23,55 @@ include('../../../utils/checker.php');
         include('../../../parts/logo.php');
 
         if(isset($_POST['register-button1'])) {
-            if(isLoggedIn()) {
-                $stmt = $SQL_Handle->prepare("UPDATE learnpp.users SET
-                    user_fname = ?,
-                    user_mname = ?,
-                    user_lname = ?,
-                    user_cemail = ?,
-                    user_phone = ?,
-                    user_messenger = ?
-                WHERE user_id = ?;");
-
-                $stmt->execute([
-                    $_POST['pi-input-fname'],
-                    $_POST['pi-input-mname'],
-                    $_POST['pi-input-lname'],
-                    $_POST['ci-input-email'],
-                    $_POST['ci-input-number'],
-                    $_POST['ci-input-messenger'],
-                    $_SESSION['user_id']
-                ]);
-
-                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutors(user_id) VALUES(?);");
-                $stmt->execute([$_SESSION['user_id']]);
-
-                header('location: ../../../../../core/home.php');
+            $validated = true;
+            
+            if(strlen($_POST['ci-input-number'] != 11)) {
+                echo "Your phone should be 11 digits.";
+                $validated = false;
+            }
+            
+            if($validated) {
+                if(isLoggedIn() && !isTutor($SQL_Handle, $_SESSION['user_id'])) {
+                    $stmt = $SQL_Handle->prepare("UPDATE learnpp.users SET
+                        user_fname = ?,
+                        user_mname = ?,
+                        user_lname = ?,
+                        user_cemail = ?,
+                        user_phone = ?,
+                        user_messenger = ?
+                    WHERE user_id = ?;");
+    
+                    $stmt->execute([
+                        $_POST['pi-input-fname'],
+                        $_POST['pi-input-mname'],
+                        $_POST['pi-input-lname'],
+                        $_POST['ci-input-email'],
+                        $_POST['ci-input-number'],
+                        $_POST['ci-input-messenger'],
+                        $_SESSION['user_id']
+                    ]);
+    
+                    $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutors(user_id) VALUES(?);");
+                    $stmt->execute([$_SESSION['user_id']]);
+    
+                    header('location: ../../../../../core/home.php');
+                } else {
+                    $_SESSION['fortutor'] = true;
+                    
+                    $_SESSION['user-fname'] = $_POST['pi-input-fname'];
+                    
+                    $_SESSION['user-mname'] = $_POST['pi-input-mname'];
+                    $_SESSION['user-lname'] = $_POST['pi-input-lname'];
+                
+                    $_SESSION['user-cemail'] = $_POST['ci-input-email'];
+                    $_SESSION['user-phone'] = $_POST['ci-input-number'];
+                    $_SESSION['user-messenger'] = $_POST['ci-input-messenger'];
+                
+                    $_SESSION['user-cor'] = $_POST['si-input-cor'];
+                    header('location: ../account.php');
+                }
             } else {
-                $_SESSION['fortutor'] = true;
-                
-                $_SESSION['user-fname'] = $_POST['pi-input-fname'];
-                
-                $_SESSION['user-mname'] = $_POST['pi-input-mname'];
-                $_SESSION['user-lname'] = $_POST['pi-input-lname'];
-            
-                $_SESSION['user-cemail'] = $_POST['ci-input-email'];
-                $_SESSION['user-phone'] = $_POST['ci-input-number'];
-                $_SESSION['user-messenger'] = $_POST['ci-input-messenger'];
-            
-                $_SESSION['user-cor'] = $_POST['si-input-cor'];
-                header('location: ../account.php');
+                echo '<script>alert("An error has occured!")</script>';
             }
         }
         

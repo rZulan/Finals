@@ -1,0 +1,43 @@
+.course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.side-1 {
+    height: 1000px;
+}
+
+.side-2 {
+    height: 1000px;
+}
+
+.side-2 .photo {
+    text-align: center;
+    background-image: url('/assets/logo.png');
+    height: 200px;
+    width: 200px;
+}
+
+.tutors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+
+    width: 90%;
+    margin: auto;
+}
+
+.tutor-1 {
+    height: 150px;
+    background-color: bisque;
+}
+
+.tutor-2 {
+    height: 150px;
+    background-color: darkgoldenrod;
+}
+
+.tutor-3 {
+    height: 150px;
+    background-color: darkseagreen;
+}

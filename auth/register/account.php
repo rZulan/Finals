@@ -4,6 +4,7 @@ define('PAGE_NAME', 'Register');
 include('../../main.php');
 include('../../connection/main.php');
 include('../../utils/checker.php');
+include('../../utils/logger.php');
 
 ?>
 
@@ -23,47 +24,52 @@ include('../../utils/checker.php');
     include('../../parts/logo.php');
 
     if(isset($_POST['register-button2'])) {
-        if($_POST['rf-acc-password'] == $_POST['rf-acc-password2']) {
-            $username = $_POST['rf-acc-name'];
-            $userpass = password_hash($_POST['rf-acc-password'], PASSWORD_BCRYPT);
-            $useremail = $_POST['rf-acc-email'];
-            
-            if(!hasAccount($SQL_Handle, $username)) {
-                if($_SESSION['fortutor']) {
-                    // INSERT USER INTO USERS TABLE
-                    $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_fname, user_mname, user_lname, user_cEmail, user_phone, user_messenger) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
-                    $stmt->execute([$username, $userpass, $useremail, $_SESSION['user-fname'], $_SESSION['user-mname'], $_SESSION['user-lname'], $_SESSION['user-cemail'], $_SESSION['user-phone'], $_SESSION['user-messenger']]);
-                    $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
+        $validated = true;
+        
+        $username = $_POST['rf-acc-name'];
+        $userpass = password_hash($_POST['rf-acc-password'], PASSWORD_BCRYPT);
+        $useremail = $_POST['rf-acc-email'];
 
-                    // INSERT USER INTO TUTORS TABLE
-                    $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutors(user_id) VALUES(?);");
-                    $stmt->execute([$SQL_Handle->lastInsertId()]);
-
-                    $_SESSION['fortutor'] = null;
-                    $_SESSION['user-fname'] = null;
-                    $_SESSION['user-mname'] = null;
-                    $_SESSION['user-lname'] = null;
-                    $_SESSION['user-cemail'] = null;
-                    $_SESSION['user-phone'] = null;
-                    $_SESSION['user-messenger'] = null;
-                } else {
-                    // INSERT USER INTO USERS TABLE
-                    $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email) VALUES(?, ?, ?);");
-                    $stmt->execute([$username, $userpass, $useremail]);
-                    $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
-                }
-                
-                $stmt = null;
-
-                header('location: ../../../../core/home.php');
-            } else {
-                echo '<script>alert("Username is already registered!")</script>';
-            }
-        } else {
+        if($_POST['rf-acc-password'] != $_POST['rf-acc-password2']) {
             echo '<script>alert("Passwords do not match!")</script>';
+            $validated = false;
         }
 
-        $_POST = array();
+        if(hasAccount($SQL_Handle, $username)) {
+            echo '<script>alert("Username is already registered!")</script>';
+            $validated = false;
+        }
+
+        if($validated) {
+            if($_SESSION['fortutor']) {
+                // INSERT USER INTO USERS TABLE
+                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_ip, user_fname, user_mname, user_lname, user_cEmail, user_phone, user_messenger) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                $stmt->execute([$username, $userpass, $useremail, $_SERVER['REMOTE_ADDR'], $_SESSION['user-fname'], $_SESSION['user-mname'], $_SESSION['user-lname'], $_SESSION['user-cemail'], $_SESSION['user-phone'], $_SESSION['user-messenger']]);
+                $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
+
+                // INSERT USER INTO TUTORS TABLE
+                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutors(user_id) VALUES(?);");
+                $stmt->execute([$SQL_Handle->lastInsertId()]);
+
+                $_SESSION['fortutor'] = null;
+                $_SESSION['user-fname'] = null;
+                $_SESSION['user-mname'] = null;
+                $_SESSION['user-lname'] = null;
+                $_SESSION['user-cemail'] = null;
+                $_SESSION['user-phone'] = null;
+                $_SESSION['user-messenger'] = null;
+            } else {
+                // INSERT USER INTO USERS TABLE
+                $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_password, user_email, user_ip) VALUES(?, ?, ?, ?);");
+                $stmt->execute([$username, $userpass, $useremail, $_SERVER['REMOTE_ADDR']]);
+                $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
+            }
+            
+            logTrail($SQL_Handle, LOGTRAIL_AUTH, ("New user registered with [username: $username | email: $useremail | ip: " . $_SERVER['REMOTE_ADDR'] . "]."));
+            header('location: ../../../../core/home.php');
+        } else {
+            echo '<script>alert("An error has occured!")</script>';
+        }
     }
     ?>
 
