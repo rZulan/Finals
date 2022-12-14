@@ -1,0 +1,243 @@
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    
+    width: 25%;
+    margin: auto;
+    margin-top: 5%;
+
+    padding: 2.5% 0 7.5% 0;
+    
+    background-color: rgb(84, 128, 216);
+    align-items: center;
+
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 8px rgba(55,138,196,1);
+
+    color: white;
+    color: rgb(70, 82, 238);
+}
+
+.ri-img-container {
+    flex: 1;
+}
+
+.ri-img-container img {
+    transition: 1000ms;
+    
+    height: 80px;
+    width: 80px;
+}
+
+.register-form img:hover {
+    transition: 500ms;
+    
+    transform: scale(1.1);
+}
+
+.register-form form {
+    flex: 1;
+    width: 100%;
+}
+
+.register-form form h1 {
+    font-family: 'Bitter', serif;
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.register-inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+
+    margin-top: 10%;
+}
+
+.ri-email {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.ri-username {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.ri-password {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.ri-password2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.ri-email input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.ri-email input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.ri-email input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+.ri-username input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.ri-username input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.ri-username input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+
+.ri-password input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.ri-password input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.ri-password input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+.ri-password2 input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.ri-password2 input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.ri-password2 input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+input[type=submit] {
+    flex: 1;
+
+    width: 30%;
+    
+    margin: auto;
+    margin-top: 20px;
+
+    background-color: rgba(114, 188, 65, 0.9);
+
+    border-radius: 20px;
+    border: none;
+
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 1.2em;
+
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgba(255, 202, 58, 0.9);
+}
+
+.ri-other-choices {
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+
+    margin-top: 20%;
+}
+
+.ri-other-choices a {
+    flex: 1;
+
+    text-decoration: underline;
+    color: rgb(232, 232, 18);
+
+    margin-top: 10px;
+}
+
+.ri-other-choices a:hover {
+    color: rgb(232, 164, 18);
+}

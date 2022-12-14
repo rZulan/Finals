@@ -1,0 +1,172 @@
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    
+    width: 25%;
+    margin: auto;
+    margin-top: 5%;
+
+    padding: 2.5% 0 7.5% 0;
+    
+    background-color: rgb(84, 128, 216);
+    align-items: center;
+
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 8px rgba(55,138,196,1);
+
+    color: white
+}
+
+.li-img-container {
+    flex: 1;
+}
+
+.li-img-container img {
+    transition: 1000ms;
+    
+    height: 80px;
+    width: 80px;
+}
+
+.login-form img:hover {
+    transition: 500ms;
+    
+    transform: scale(1.1);
+}
+
+.login-form form {
+    flex: 1;
+    width: 100%;
+}
+
+.login-form form h1 {
+    font-family: 'Bitter', serif;
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+
+    margin-top: 10%;
+}
+
+.li-email {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.li-password {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    align-self: center;
+
+    margin-top: 10px;
+}
+
+.li-email input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.li-email input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.li-email input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+.li-password input {
+    height: 35px;
+    width: 250px;
+
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.li-password input:hover {
+    transition: 500ms;
+
+    background-color: rgba(255, 202, 58, 0.9);
+    cursor: pointer;
+}
+
+.li-password input:focus {
+    outline-style: none;
+    border: 5px solid rgb(255, 202, 58);
+}
+
+input[type=submit] {
+    flex: 1;
+
+    width: 30%;
+    
+    margin: auto;
+    margin-top: 20px;
+
+    background-color: rgba(114, 188, 65, 0.9);
+    
+    border-radius: 20px;
+    border: none;
+
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 1.2em;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgba(255, 202, 58, 0.9);
+}
+
+.li-other-choices {
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+
+    margin-top: 20%;
+}
+
+.li-other-choices a {
+    flex: 1;
+
+    text-decoration: underline;
+    color: rgb(232, 232, 18);
+
+    margin-top: 10px;
+}
+
+.li-other-choices a:hover {
+    color: rgb(232, 164, 18);
+}

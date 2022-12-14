@@ -13,7 +13,7 @@ include('../../../utils/checker.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
@@ -24,11 +24,6 @@ include('../../../utils/checker.php');
 
         if(isset($_POST['register-button1'])) {
             $validated = true;
-            
-            if(strlen($_POST['ci-input-number'] != 11)) {
-                echo "Your phone should be 11 digits.";
-                $validated = false;
-            }
             
             if($validated) {
                 if(isLoggedIn() && !isTutor($SQL_Handle, $_SESSION['user_id'])) {
@@ -70,8 +65,6 @@ include('../../../utils/checker.php');
                     $_SESSION['user-cor'] = $_POST['si-input-cor'];
                     header('location: ../account.php');
                 }
-            } else {
-                echo '<script>alert("An error has occured!")</script>';
             }
         }
         

@@ -13,10 +13,9 @@ include('../utils/checker.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="courses.css">
     
+    <link rel="stylesheet" href="/style.css">
+
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
@@ -25,9 +24,13 @@ include('../utils/checker.php');
     include('../parts/nav.php');
     ?>
     
-    <div class="login-warning">
-        <p><b>Warning:</b> You have to sign in to interact <span><a href="/auth/login/login.php">Login >>></a></span></p>
-    </div>
+    <?php
+    if(!isLoggedIn()) {
+        echo '<div class="login-warning">';
+            echo '<p><b>Warning:</b> You have to sign in to interact <span><a href="/auth/login/login.php">Login >>></a></span></p>';
+        echo '</div>';
+    }
+    ?>
 
     <div class="all-courses">
         <?php

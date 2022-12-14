@@ -18,9 +18,8 @@ if(!isset($_GET['course-id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="course.css">
-    
+    <link rel="stylesheet" href="/style.css">
+
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
 </head>
@@ -31,7 +30,7 @@ if(!isset($_GET['course-id'])) {
 
     <?php
 
-    $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.courses WHERE course_id = ?;");
+    $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.courses WHERE course_id = ? LIMIT 1;");
     $stmt->execute([$_GET['course-id']]);
 
     $result = $stmt->fetch();
@@ -46,14 +45,14 @@ if(!isset($_GET['course-id'])) {
         echo '<h2>Tutors</h2>';
         foreach($stmt->fetchAll() as $tutorcourse) {
             echo '<div class="course-tutor" style="border: 1px solid black";>';
-            $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.tutors WHERE tutor_id = ?;");
+            $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.tutors WHERE tutor_id = ? LIMIT 1;");
             $stmt->execute([$tutorcourse['tutor_id']]);
     
             $result = $stmt->fetch();
             
             echo getUserName($SQL_Handle, $result['user_id']);
             echo getUserFullName($SQL_Handle, $result['user_id']);
-            echo '<a href="#">Choose Tutor</a>';
+            echo '<a href="confirmation.php?tutor-id=' . $tutorcourse['tutor_id'] . '&course-id=' . $tutorcourse['course_id'] . '">Choose Tutor</a>';
             echo '</div>';
         }
         echo '</div>';

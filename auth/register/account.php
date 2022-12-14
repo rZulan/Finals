@@ -14,6 +14,9 @@ include('../../utils/logger.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="account.css">
     
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
@@ -21,7 +24,7 @@ include('../../utils/logger.php');
 <body>
 
     <?php
-    include('../../parts/logo.php');
+    include('../../parts/nav.php');
 
     if(isset($_POST['register-button2'])) {
         $validated = true;
@@ -65,7 +68,7 @@ include('../../utils/logger.php');
                 $_SESSION['user_id'] = $SQL_Handle->lastInsertId();
             }
             
-            logTrail($SQL_Handle, LOGTRAIL_AUTH, ("New user registered with [username: $username | email: $useremail | ip: " . $_SERVER['REMOTE_ADDR'] . "]."));
+            logTrail($SQL_Handle, LOGTRAIL_AUTH, ("New user registered with <b>[username: $username | email: $useremail | ip: " . $_SERVER['REMOTE_ADDR'] . "]</b>."));
             header('location: ../../../../core/home.php');
         } else {
             echo '<script>alert("An error has occured!")</script>';
@@ -73,22 +76,47 @@ include('../../utils/logger.php');
     }
     ?>
 
-    <form action="" method="post">
-        <label for="rf-acc-email">Email</label>
-        <input type="email" name="rf-acc-email" id="rf-acc-email">
+    <div class="register-form">
+        <div class="ri-img-container">
+            <img src="/assets/logo.png" alt="">
+        </div>
+
+        <form action="" method="post">
+            <h1><?=strtoupper(PAGE_NAME)?></h1>
+            <div class="register-inputs">
+                <div class="ri-inputs ri-email">
+                    <label for="rf-acc-email">Email</label>
+                    <?php
+                    if(isset($_SESSION['user-cemail'])) {
+                        echo '<input type="email" name="rf-acc-email" id="rf-acc-email" value="' . $_SESSION['user-cemail'] . '">';
+                    } else {
+                        echo '<input type="email" name="rf-acc-email" id="rf-acc-email">';
+                    }
+                    ?>
+                </div>
+
+                <div class="ri-inputs ri-username">
+                    <label for="rf-acc-name">Username</label>
+                    <input type="text" name="rf-acc-name" id="rf-acc-name">
+                </div>
+
+                <div class="ri-inputs ri-password">
+                    <label for="rf-acc-password">Password</label>
+                    <input type="password" name="rf-acc-password" id="rf-acc-password">
+                </div>
+                
+                <div class="ri-inputs ri-password2">
+                    <label for="rf-acc-password2">Confirm Password</label>
+                    <input type="password" name="rf-acc-password2" id="rf-acc-password2">
+                </div>
         
-        <label for="rf-acc-name">Username</label>
-        <input type="text" name="rf-acc-name" id="rf-acc-name">
+                <input type="submit" value="Register" name="register-button2" id="register-button2" required="true">
+            </div>
+        </form>
 
-        <label for="rf-acc-password">Password</label>
-        <input type="password" name="rf-acc-password" id="rf-acc-password">
+        <div class="ri-other-choices">
+            <a href="../login/login.php">Already registered? Login now.</a>
+        </div>
+    </div>
 
-        <label for="rf-acc-password2">Confirm Password</label>
-        <input type="password" name="rf-acc-password2" id="rf-acc-password2">
-
-        <input type="submit" value="Register" name="register-button2" id="register-button2" required="true">
-    </form>
-
-    <a href="../login/login.php">Already registered? Login now.</a>
-</body>
 </html>

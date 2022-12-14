@@ -13,7 +13,7 @@
     text-align: center;
     text-decoration: none;
 
-    color: black;
+    color: rgb(70, 82, 238);
 }
 
 #brand-name:hover {
@@ -60,6 +60,26 @@
 #char-7:hover {
     color: rgb(255, 98, 0);
     text-shadow: 1px 1px 3px;
+}
+
+@media only screen and (max-width: 1100px) {
+    #brand-name {
+        font-size: 2em;
+    }
+
+    #brand-name h1 span {
+        margin-left: -5px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #brand-name {
+        font-size: 1.5em;
+    }
+
+    #brand-name h1 span {
+        margin-left: 0r;
+    }
 }
 
 </style>

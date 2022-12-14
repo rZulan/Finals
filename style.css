@@ -1,175 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anybody&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    color: rgb(255, 255, 255)
-}
-
-a {
-    text-decoration: none;
 }
 
 li {
     list-style: none;
 }
 
-body {
-    /* background-color: rgb(19, 129, 223); */
-    background-color: rgb(57, 131, 57);
+a {
+    text-decoration: none;
+    color: black;
 }
 
-::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
 
-/* ------ */
 /* NAVBAR */
-/* ------ */
 
 nav {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    grid-auto-flow: column;
-    column-gap: 50%;
+    display: flex;
 
-    width: 85%;
+    width: 80%;
     margin: auto;
-    margin-top: 2.5%;
 
     align-items: center;
+}
+
+#brand-name {
+    flex: 1;
+    text-align: left;
 }
 
 nav ul {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-
-    font-size: 1.2em;
-    font-family: 'Sono', sans-serif;
-    text-align: center;
-}
-
-nav ul a {
-    transition: 1000ms;
-}
-
-nav ul a:hover {
-    transition: 500ms;
-
-    color: rgb(255, 255, 0);
-    
-    transform: scale(1.1);
-}
-
-#register-button {
-    transition: 1000ms;
-
-    padding: 5px 10px 5px 10px;
-    
-    border: 1px white solid;
-    border-radius: 25px;
-}
-
-#register-button:hover {
-    transition: 500ms;
-    transform: scale(1.05);
-
-    background-color: rgb(255, 255, 0);
-    color: rgb(0, 0, 0);
-}
-
-/* ----------- */
-/* DESCRIPTION */
-/* ----------- */
-
-.description {
+    flex: 3;
     display: flex;
-    align-items: center;
-    flex-direction: column;
 
-    margin-top: 15%;
+    justify-content: right;
 }
 
-.description h1 {
-    transition: 1000ms;
-    font-family: 'Francois One', sans-serif;
-    font-size: 3em;
-    flex: 1;
-}
+nav ul li {
+    margin: 0 25px 0 25px;
 
-.description h1:hover {
-    transition: 500ms;
-
-    transform: scale(1.2);
-
-    cursor: pointer;
-}
-
-.description h3 {
-    flex: 1;
-    font-family: 'Kalam', cursive;
+    font-family: 'Dosis', sans-serif;
     font-size: 1.5em;
-}
-
-/* ------- */
-/* BUTTONS */
-/* ------- */
-
-.buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5%;
-
-    width: 30%;
-    margin: auto;
-    margin-top: 2.5%;
-
-    font-family: 'Inconsolata', monospace;
-
-    font-size: 1.75em;
-
     text-align: center;
 }
 
-#apply {
-    transition: 1000ms;
+@media only screen and (max-width: 1100px) {
+    nav {
+        flex-direction: column;
+    }
 
-    padding: 5px 0 5px 0;
-    
-    border: 1px solid white;
-    border-radius: 22.5px;
+    nav ul li {
+        font-size: 1.25em;
+    }
 }
 
-#learn {
-    transition: 1000ms;
+@media only screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
 
-    padding: 5px 0 5px 0;
-    
-    border: 1px solid white;
-    border-radius: 22.5px;
+    nav ul li {
+        font-size: 1em;
+    }
 }
 
-#apply:hover {
-    transition: 500ms;
-    transform: scale(1.05);
-
-    font-size: 1.1em;
-    
-    background-color: rgb(255, 255, 0);
-    color: rgb(0, 0, 0);
-}
-
-#learn:hover {
-    transition: 500ms;
-    transform: scale(1.05);
-
-    font-size: 1.1em;
-    
-    background-color: rgb(255, 255, 0);
-    color: rgb(0, 0, 0);
+body {
+    background-color: rgb(100, 243, 195);
 }
