@@ -9,10 +9,10 @@
         <?php
         if(isLoggedIn()) {
             if(!isTutor($SQL_Handle, $_SESSION['user_id'])) {
-                echo '<li><a href="../auth/register/choices/tutor.php">Become a Tutor</a></li>';
+                echo '<li><a href="/auth/register/choices/tutor.php">Become a Tutor</a></li>';
             }
         } else {
-            echo '<li><a href="../auth/register/choices/tutor.php">Become a Tutor</a></li>';
+            echo '<li><a href="/auth/register/choices/tutor.php">Become a Tutor</a></li>';
         }
 
         if(isLoggedIn()) {

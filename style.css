@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
 
 * {
     margin: 0;
@@ -72,4 +73,7 @@ nav ul li {
 
 body {
     background-color: rgb(100, 243, 195);
+
+    font-family: 'Nunito', sans-serif;
+
 }

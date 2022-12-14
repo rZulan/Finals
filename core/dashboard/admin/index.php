@@ -40,20 +40,21 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
 
     <div class="db-options">
         <ul>
-            <li><a href="#stats-section">Stats</a></li>
-            <li><a href="#users-section">Users</a></li>
-            <li><a href="#tutors-section">Tutors</a></li>
-            <li><a href="#sessions-section">Sessions</a></li>
-            <li><a href="#logs-section">Audit Log</a></li>
-            <li><a href="#settings-section">Website Settings</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#tutors">Tutors</a></li>
+            <li><a href="#sessions">Sessions</a></li>
+            <li><a href="#logs">Audit Log</a></li>
+            <li><a href="#settings">Website Settings</a></li>
         </ul>
     </div>
 
-    <div id="stats-section">
+    <section id="stats">
         <h1>Stats</h1>
         <hr>
-    </div>
-    <div id="users-section">
+    </section>
+
+    <section id="users">
         <h1>Users</h1>
         <table>
             <thead class="">
@@ -84,10 +85,10 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
 
         <?php
         if(isset($_POST['create-user-button'])) {
-            $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_email, user_password) VALUES(?, ?, ?);");
-            $stmt->execute([$_POST['create-username'], $_POST['create-email'], password_hash($_POST['create-password'], PASSWORD_BCRYPT)]);
+            $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.users(user_name, user_email, user_ip, user_password) VALUES(?, ?, ?, ?);");
+            $stmt->execute([$_POST['create-username'], $_POST['create-email'], $_SERVER['REMOTE_ADDR'], password_hash($_POST['create-password'], PASSWORD_BCRYPT)]);
 
-            header('location: users.php');
+            echo "<meta http-equiv='refresh' content='0'>";
         }
         ?>
         
@@ -114,9 +115,61 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
         }
         ?>
         <hr>
-    </div>
+    </section>
 
-    <div id="tutors-section">
+    <section class="admins">
+        <h1>Admins</h1>
+
+        <?php
+        $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.admins;");
+        $stmt->execute([]);
+
+        ?>
+
+        <table class="table">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th scope="col">Admin ID</th>
+                    <th scope="col">Admin User ID</th>
+                    <th scope="col">Admin Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <?php
+    
+            foreach(array_reverse($stmt->fetchAll()) as $i=>$admin) {
+                echo "<tr>";
+                    echo '<th scope="row">' . $admin['admin_id'] . '</td>';
+                    echo '<td>' . $admin['user_id'] . '</td>';
+                    echo '<td>' . getUserName($SQL_Handle, $admin['user_id']) . '</td>';
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
+
+        <?php
+        if(isset($_POST['add-admin-button'])) {
+            $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.admins(user_id) VALUES(?);");
+            $stmt->execute([$_POST['add-admin']]);
+
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        ?>
+
+        <h1>Add Admin</h1>
+
+        <form action="" method="post">
+            <label for="add-admin">User ID</label>
+            <input type="text" name="add-admin" id="add-admin" placeholder="User ID">
+
+            <input type="submit" value="Add Admin" name="add-admin-button" id="add-admin-button">
+        </form>
+        <hr>
+    </section>
+
+    <section id="tutors">
         <h1>Tutors</h1>
         <table>
             <thead>
@@ -142,14 +195,14 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
             </tbody>
         </table>
         <hr>
-    </div>
+    </section>
 
-    <div id="sessions-section">
+    <section id="sessions">
         <h1>Sessions</h1>
         <hr>
-    </div>
+    </section>
 
-    <div id="logs-section" style="height: 500px; overflow: scroll;">
+    <section id="logs" style="height: 500px; overflow: scroll;">
         <h1>Audit Log</h1>
         <table>
             <thead>
@@ -177,11 +230,68 @@ if(!isAdmin($SQL_Handle, $_SESSION['user_id'])) {
             </tbody>
         </table>
         <hr>
-    </div>
+    </section>
 
-    <div class="settings-section">
+    <section class="settings">
         <h1>Settings</h1>
         <hr>
-    </div>
+    </section>
+
+    <section class="courses">
+        <h1>Courses</h1>
+        <table>
+            <thead class="">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Course Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.courses;");
+            $stmt->execute([]);
+        
+            foreach($stmt->fetchAll() as $course) {
+                echo "<tr>";
+                    echo '<th scope="row">' . $course['course_id'] . '</td>';
+                    echo '<td>' . $course['course_name'] . '</td>';
+                    echo '<td>' . $course['course_description'] . '</td>';
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
+
+        <?php
+        if(isset($_POST['add-course-button'])) {
+            $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.courses(course_name, course_description) VALUES(?, ?);");
+            $stmt->execute([$_POST['add-course'], $_POST['add-course-desc']]);
+
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        ?>
+        
+        <h1>Add Course</h1>
+        
+        <form action="" method="post">
+            <label for="add-course">Course Name</label>
+            <input type="text" name="add-course" id="add-course" placeholder="Course Name">
+
+            <label for="add-course-desc">Course Description</label>
+            <input type="text" name="add-course-desc" id="add-course-desc" placeholder="Course Description">
+
+            <input type="submit" value="Add Course" name="add-course-button" id="add-course-button">
+        </form>
+        
+        <?php
+        if(isset($_POST['is-tutor']) and $_POST['is-tutor'] == 'yes') {
+            echo "<form action='' method='post'>";
+                echo "<input type='text' name='first-name'>";
+            echo "</form>";
+        }
+        ?>
+        <hr>
+    </section>
 </body>
 </html>

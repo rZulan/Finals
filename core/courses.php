@@ -15,6 +15,7 @@ include('../utils/checker.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="courses.css">
 
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title><?=BRAND_NAME . ' | ' . PAGE_NAME?></title>
@@ -27,7 +28,7 @@ include('../utils/checker.php');
     <?php
     if(!isLoggedIn()) {
         echo '<div class="login-warning">';
-            echo '<p><b>Warning:</b> You have to sign in to interact <span><a href="/auth/login/login.php">Login >>></a></span></p>';
+            echo '<p><b>Warning:</b> You have to sign in to interact <span id="warning-button"><a href="/auth/login/login.php">Login >>></a></span></p>';
         echo '</div>';
     }
     ?>

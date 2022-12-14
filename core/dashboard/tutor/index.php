@@ -138,6 +138,67 @@ include('../../../utils/getter.php');
             ?>
             </tbody>
         </table>
+
+        <?php
+        if(isset($_POST['choose-course-button'])) {
+            $stmt = $SQL_Handle->prepare("INSERT INTO learnpp.tutor_course(tutor_id, course_id, tc_fee) VALUES(?, ?, ?);");
+            $stmt->execute([getTutorIDFromUserID($SQL_Handle, $_SESSION['user_id']), $_POST['choose-course'], $_POST['choose-course-fee']]);
+            
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        ?>
+        
+        <h1>Choose Course to Tutor</h1>
+        
+        <form action="" method="post">
+            <label for="choose-course">Username</label>
+            <select name="choose-course" id="choose-course">
+                <?php
+                $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.courses;");
+                $stmt->execute([]);
+
+                foreach($stmt->fetchAll() as $course) {
+                    echo '<option value="' . $course['course_id'] . '">' . $course['course_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <label for="choose-course-fee">How much you want to charge for this course? ₱</label>
+            <input type="text" name="choose-course-fee" id="choose-course-fee">
+            <input type="submit" value="Submit" name="choose-course-button">
+        </form>
+    </section>
+
+    <section class="courses">
+        <h1>Courses</h1>
+
+        <?php
+        $stmt = $SQL_Handle->prepare("SELECT * FROM learnpp.tutor_course WHERE tutor_id = ?;");
+        $stmt->execute([getTutorIDFromUserID($SQL_Handle, $_SESSION['user_id'])]);
+
+        ?>
+
+        <table class="table">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Fee</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <?php
+    
+            foreach(array_reverse($stmt->fetchAll()) as $i=>$course) {
+                echo "<tr>";
+                    echo '<th scope="row">' . $course['course_id'] . '</td>';
+                    echo '<td>' . getCourseName($SQL_Handle, $course['course_id']) . '</td>';
+                    echo '<td>' . ($course['tc_fee'] <= 0 ? "Free" : $course['tc_fee']) . '</td>';
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
     </section>
 
 </body>
