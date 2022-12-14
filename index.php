@@ -39,15 +39,15 @@ include('utils/getter.php');
                 <h2>PHP</h2>
             </div>
             <div class="intro-course">
-                <img src="/assets/icons/php.png" alt="">
+                <img src="/assets/icons/html.png" alt="">
                 <h2>HTML</h2>
             </div>
             <div class="intro-course">
-                <img src="/assets/icons/php.png" alt="">
+                <img src="/assets/icons/css.png" alt="">
                 <h2>CSS</h2>
             </div>
             <div class="intro-course">
-                <img src="/assets/icons/php.png" alt="">
+                <img src="/assets/icons/javascript.png" alt="">
                 <h2>Javascript</h2>
             </div>
         </div>
