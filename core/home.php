@@ -24,6 +24,7 @@ include('../utils/checker.php');
     include('../parts/nav.php');
     ?>
 
-</body>
+    <img src="/assets/process.png" alt="">
 
+</body>
 </html>

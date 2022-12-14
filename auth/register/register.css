@@ -1,4 +1,38 @@
 .register-type-container {
-    width: 75%;
+    display: flex;
+    flex-direction: column;
+    
+    width: 50%;
     margin: auto;
+}
+
+.register-type {
+    flex: 1;
+    text-align: center;
+}
+
+.register-choices {
+    display: flex;
+
+    width: 80%;
+    margin: auto;
+}
+
+.register-choices a {
+    flex: 1;
+
+    border: 1px solid black;
+    border-radius: 20px;
+
+    margin: 0 25px 0 25px;
+}
+
+#register-back-button {
+    flex: 1;
+
+    text-align: center;
+}
+
+#register-back-button a {
+    text-decoration: underline;
 }

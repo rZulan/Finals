@@ -27,8 +27,6 @@ include('../../utils/getter.php');
     ?>
     
     <div class="register-type-container">
-        
-
         <div class="register-type">
             <h1>What are you signing up for?</h1>
             <div class="register-choices">
@@ -38,9 +36,9 @@ include('../../utils/getter.php');
             </div>
         </div>
 
-        <h5 id="register-back-button">
+        <div id="register-back-button">
             <a href="/core/home.php">Back to home page >></a>
-        </h5>
+        </div>
     </div>
 </body>
 </html>
